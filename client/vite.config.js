@@ -1,5 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import dotenv from "dotenv";
+import eslintPlugin from "vite-plugin-eslint";
 
 const dotEnvReplacement = (env) => {
     const replacement = Object.entries(env).reduce((obj, [key, val]) => {

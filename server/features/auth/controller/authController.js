@@ -1,5 +1,16 @@
 const authModal = require("../model/authModal");
 
+exports.login = async (req, res) => {
+  try {
+    //
+  } catch (error) {
+    res.send({
+      status: 500,
+      message: error.message,
+    });
+  }
+};
+
 exports.createUser = async (req, res) => {
   try {
     const body = req.body;

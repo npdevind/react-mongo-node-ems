@@ -1,4 +1,5 @@
 const db = require("../../../config/db");
+const bcrypt = require("bcryptjs");
 
 exports.createUser = async (body) => {
   try {
@@ -10,10 +11,13 @@ exports.createUser = async (body) => {
 
     if (checkExistEmail) throw Error("This email already exist");
 
+    const hashPassword = bcrypt.hashSync(body.password, 10);
+
     const createUser = await db.prisma.users.create({
       data: {
-        name: body.name,
+        username: body.username,
         email: body.email,
+        password: hashPassword,
       },
     });
 
