@@ -1,0 +1,12 @@
+{
+   "editor.formatOnSave": true, // format code when you hit save
+   "editor.defaultFormatter": "esbenp.prettier-vscode",
+   "typescript.updateImportsOnFileMove.enabled": "always",
+   "git.mergeEditor": false,
+   "prettier.tabWidth": 2,
+   "workbench.colorCustomizations": {
+      "activityBar.background": "#063147",
+      "titleBar.activeBackground": "#084564",
+      "titleBar.activeForeground": "#F6FBFE"
+   }
+}

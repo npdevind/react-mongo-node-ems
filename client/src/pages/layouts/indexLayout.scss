@@ -1,0 +1,27 @@
+.navbar {
+    background: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.index_nav_bar .header_name {
+    font-size: 20px;
+    cursor: pointer;
+}
+.index_nav_bar .header-link {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    color: #000;
+}
+.index_nav_bar .header-link .nav_link {
+    text-decoration: none;
+    color: #000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.index_nav_bar .header-link .nav_link:hover {
+    color: #0670b8;
+}
+
+.header_link_media {
+    display: none;
+}

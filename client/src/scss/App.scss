@@ -1,0 +1,18 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+@font-face {
+    font-family: "Poppins";
+    src: url("./fonts/eot/Poppins-ThinItalic.eot");
+    src: url("./fonts/eot/Poppins-ThinItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/woff2/Poppins-ThinItalic.woff2") format("woff2"),
+        url("./fonts/woff/Poppins-ThinItalic.woff") format("woff"), url("./fonts/ttf/Poppins-ThinItalic.ttf") format("truetype"),
+        url("./fonts/svg/Poppins-ThinItalic.svg#Poppins-ThinItalic") format("svg");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #333131;
+    color: #fff;
+}
