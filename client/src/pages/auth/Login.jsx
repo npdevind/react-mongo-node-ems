@@ -1,17 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./auth.scss";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/slices/userSlice";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setError,
+    // setError,
   } = useForm({ defaultValues: { username: "", password: "" } });
 
   const [loading, setLoading] = useState(false);
+  // const [token, setToken] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -24,7 +30,19 @@ const Login = () => {
         },
         body: JSON.stringify(data),
       });
+      const resData = await res.json();
+      if (resData.error) {
+        setLoading(false);
+        toast.error(resData.message);
+      } else {
+        setLoading(false);
+        dispatch(login({ ...resData.data?.userData, token: resData.data?.token }));
+        localStorage.setItem("token", resData.data?.token);
+        navigate("/dashboard");
+        toast.success(resData.message);
+      }
     } catch (error) {
+      toast.error(error);
       setLoading(false);
     }
   };

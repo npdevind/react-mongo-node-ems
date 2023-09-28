@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./auth.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setError,
+    // setError,
   } = useForm({ defaultValues: { email: "", username: "", password: "" } });
 
   const [loading, setLoading] = useState(false);
@@ -24,13 +26,17 @@ const Signup = () => {
         body: JSON.stringify(data),
       });
       const resData = await res.json();
-      if (res.ok) {
-        console.log(resData.message);
+
+      if (resData.error) {
+        toast.error(resData.message);
         setLoading(false);
       } else {
-        console.log(await res.json());
+        setLoading(false);
+        toast.success("You are successfully signup");
+        navigate("/login");
       }
     } catch (error) {
+      toast.error(error);
       setLoading(false);
     }
   };
